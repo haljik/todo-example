@@ -5,4 +5,7 @@ package todo.model;
  */
 public interface TaskRepository {
     void registerTask(Task task);
+
+    Task prototype();
+
 }
