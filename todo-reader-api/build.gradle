@@ -1,0 +1,51 @@
+buildscript {
+   ext {
+      springBootVersion='1.2.1.RELEASE'
+      defaultEncoding='UTF-8'
+   }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = targetCompatibility = 1.8
+tasks.withType(AbstractCompile) each { it.options.encoding = defaultEncoding }
+tasks.withType(GroovyCompile) each { it.groovyOptions.encoding = defaultEncoding }
+
+jar {
+    baseName = 'todo-reader-api'
+    version =  '0.0.1'
+}
+
+bootRun {
+    if ( project.hasProperty('args') ) {
+        args project.args.split('\\s+')
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
+
+    compile("com.h2database:h2:1.4.185")
+    compile("commons-lang:commons-lang:2.6")
+    compile("org.mybatis:mybatis:3.2.8")
+    compile("org.mybatis:mybatis-spring:1.2.2")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+    testCompile("org.spockframework:spock-core:0.7-groovy-2.0")
+    testCompile("org.spockframework:spock-spring:0.7-groovy-2.0")
+}
+

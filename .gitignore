@@ -1,0 +1,14 @@
+# gradle files
+.gradle/
+
+# build result path
+build/
+
+# idea
+.idea/
+*.iml
+
+# log
+*.log
+
+*.un〜
