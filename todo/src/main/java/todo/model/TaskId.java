@@ -5,4 +5,8 @@ package todo.model;
  */
 public class TaskId {
     Integer value;
+
+    public Integer getValue() {
+        return value;
+    }
 }

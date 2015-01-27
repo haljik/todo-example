@@ -5,12 +5,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import todo.model.Task;
 import todo.model.TaskRepository;
+import todo.model.Tasks;
 
 /**
  * Created by haljik on 15/01/26.
  */
 @Service
-public class TaskRegisterService {
+public class TaskService {
     @Autowired
     TaskRepository repository;
 
@@ -22,4 +23,13 @@ public class TaskRegisterService {
         repository.registerTask(task);
     }
 
+    public Tasks tasks() {
+        return repository.tasks();
+    }
+
+    public void done(String id) {
+        Task task = repository.findBy(id);
+        task.setDone(true);
+        repository.done(task);
+    }
 }

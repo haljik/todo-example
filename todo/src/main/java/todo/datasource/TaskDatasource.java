@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import todo.model.Task;
 import todo.model.TaskRepository;
+import todo.model.Tasks;
 
 /**
  * Created by haljik on 15/01/26.
@@ -22,6 +23,21 @@ public class TaskDatasource implements TaskRepository {
     @Override
     public Task prototype() {
         return new Task(mapper.newId());
+    }
+
+    @Override
+    public Tasks tasks() {
+        return new Tasks(mapper.tasks());
+    }
+
+    @Override
+    public Task findBy(String id) {
+        return mapper.findBy(id);
+    }
+
+    @Override
+    public void done(Task task) {
+        mapper.done(task);
     }
 
 }

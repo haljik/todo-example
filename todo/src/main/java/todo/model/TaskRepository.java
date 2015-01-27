@@ -8,4 +8,9 @@ public interface TaskRepository {
 
     Task prototype();
 
+    Tasks tasks();
+
+    Task findBy(String id);
+
+    void done(Task task);
 }
