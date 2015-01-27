@@ -38,10 +38,11 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
 
-    compile("com.h2database:h2:1.4.185")
     compile("commons-lang:commons-lang:2.6")
     compile("org.mybatis:mybatis:3.2.8")
     compile("org.mybatis:mybatis-spring:1.2.2")
+
+    runtime("org.postgresql:postgresql:9.3-1102-jdbc41")
 
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     testCompile("org.spockframework:spock-core:0.7-groovy-2.0")
