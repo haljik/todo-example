@@ -10,7 +10,7 @@ public interface TaskRepository {
 
     Tasks tasks();
 
-    Task findBy(String id);
+    Task findBy(Integer id);
 
     void done(Task task);
 }

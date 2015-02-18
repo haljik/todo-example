@@ -2,7 +2,6 @@ package todo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import todo.model.Task;
 import todo.model.TaskRepository;
 import todo.model.Tasks;
@@ -27,7 +26,7 @@ public class TaskService {
         return repository.tasks();
     }
 
-    public void done(String id) {
+    public void done(Integer id) {
         Task task = repository.findBy(id);
         task.setDone(true);
         repository.done(task);

@@ -31,7 +31,7 @@ public class TaskDatasource implements TaskRepository {
     }
 
     @Override
-    public Task findBy(String id) {
+    public Task findBy(Integer id) {
         return mapper.findBy(id);
     }
 

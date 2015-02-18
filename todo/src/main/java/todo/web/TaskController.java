@@ -41,7 +41,7 @@ public class TaskController {
     }
 
     @RequestMapping(value = "/tasks/done/{id}", method= RequestMethod.POST)
-    public String done(@PathVariable("id") String id) {
+    public String done(@PathVariable("id") Integer id) {
         service.done(id);
         return "redirect:/";
     }

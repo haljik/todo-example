@@ -25,7 +25,7 @@ public interface TaskMapper {
 
 
     @Select("select task_id as \"id.value\", name, done from todo.tasks where task_id = #{id}")
-    Task findBy(@Param("id") String id);
+    Task findBy(@Param("id") Integer id);
 
     @Update("update todo.tasks set done = #{done} where task_id = #{id.value}")
     void done(Task task);
